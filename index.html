@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ekosistem Aplikasi Sekolah — Infografis</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #0a0f1e;
+  --navy2:   #0f172a;
+  --navy3:   #1e293b;
+  --blue:    #2563eb;
+  --blue-d:  #1d4ed8;
+  --sky:     #38bdf8;
+  --green:   #10b981;
+  --green-d: #059669;
+  --amber:   #f59e0b;
+  --violet:  #7c3aed;
+  --indigo:  #6366f1;
+  --indigo-d:#4f46e5;
+  --rose:    #f43f5e;
+  --pink:    #ec4899;
+  --pink-d:  #db2777;
+  --slate:   #64748b;
+  --w60:     rgba(255,255,255,0.60);
+  --w40:     rgba(255,255,255,0.40);
+  --w20:     rgba(255,255,255,0.20);
+  --w08:     rgba(255,255,255,0.08);
+  --w05:     rgba(255,255,255,0.05);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--navy);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* ═══ PAGE SYSTEM ═══════════════════════════════════ */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ═══ STICKY NAV ════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  display: flex; align-items: center; gap: 0;
+  background: rgba(10,15,30,0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 0 24px;
+  height: 58px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 15px; font-weight: 800; color: #fff;
+  text-decoration: none; margin-right: 24px; flex-shrink: 0;
+}
+.nav-logo span { color: var(--sky); }
+.nav-pills {
+  display: flex; align-items: center; gap: 4px; flex: 1; overflow-x: auto;
+}
+.nav-pills::-webkit-scrollbar { display: none; }
+.npill {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+  border: none; background: transparent; color: var(--w60);
+  transition: all 0.2s;
+}
+.npill:hover { background: var(--w08); color: #fff; }
+.npill.active { color: #fff; }
+.npill .dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.npill-home.active  { background: rgba(37,99,235,0.2); }
+.npill-abuts.active { background: rgba(16,185,129,0.18); }
+.npill-skl.active   { background: rgba(124,58,237,0.18); }
+.npill-sal.active   { background: rgba(99,102,241,0.20); }
+.npill-spmb.active  { background: rgba(236,72,153,0.18); }
+
+/* ═══ SHARED LAYOUT ═════════════════════════════════ */
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.pt-nav { padding-top: 58px; }
+
+/* ═══ HERO (HOME) ════════════════════════════════════ */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 100px 24px 80px;
+  overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.055) 1px, transparent 1px);
+  background-size: 36px 36px;
+  animation: dotdrift 28s linear infinite;
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 55% at 15% 25%, rgba(37,99,235,0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 65% at 85% 75%, rgba(245,158,11,0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 45% at 50% 110%, rgba(16,185,129,0.12) 0%, transparent 55%);
+}
+@keyframes dotdrift { 0%{background-position:0 0} 100%{background-position:36px 36px} }
+
+.hero-inner { position: relative; z-index: 2; max-width: 820px; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(37,99,235,0.16); border: 1px solid rgba(56,189,248,0.35);
+  border-radius: 100px; padding: 6px 20px;
+  font-size: 11px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase;
+  color: var(--sky); margin-bottom: 28px;
+}
+.hero-title {
+  font-size: clamp(2.8rem, 8vw, 6rem); font-weight: 900;
+  letter-spacing: -2px; line-height: 1.0; margin-bottom: 12px;
+  background: linear-gradient(135deg, #fff 0%, #bfdbfe 55%, var(--sky) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem); font-weight: 500;
+  color: var(--w60); line-height: 1.7; margin-bottom: 44px;
+}
+
+/* app trio cards */
+.app-trio {
+  display: flex; flex-wrap: wrap; gap: 14px;
+  justify-content: center; margin-bottom: 52px;
+}
+.app-card {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 22px; border-radius: 16px;
+  cursor: pointer; transition: all 0.22s;
+  border: 1.5px solid transparent; min-width: 190px; flex: 1; max-width: 240px;
+}
+.app-card:hover { transform: translateY(-4px); }
+.app-card-au  { background: rgba(37,99,235,0.12); border-color: rgba(37,99,235,0.35); }
+.app-card-ab  { background: rgba(16,185,129,0.10); border-color: rgba(16,185,129,0.32); }
+.app-card-skl { background: rgba(124,58,237,0.12); border-color: rgba(124,58,237,0.35); }
+.app-card-sal  { background: rgba(99,102,241,0.12);  border-color: rgba(99,102,241,0.35); }
+.app-card-spmb { background: rgba(236,72,153,0.10);  border-color: rgba(236,72,153,0.32); }
+.app-card:hover.app-card-au   { background: rgba(37,99,235,0.20);  border-color: rgba(56,189,248,0.6); }
+.app-card:hover.app-card-ab   { background: rgba(16,185,129,0.18); border-color: rgba(16,185,129,0.6); }
+.app-card:hover.app-card-skl  { background: rgba(124,58,237,0.20); border-color: rgba(167,139,250,0.6); }
+.app-card:hover.app-card-sal  { background: rgba(99,102,241,0.22); border-color: rgba(165,180,252,0.6); }
+.app-card:hover.app-card-spmb { background: rgba(236,72,153,0.20); border-color: rgba(249,168,212,0.6); }
+.app-icon { font-size: 2rem; flex-shrink: 0; }
+.app-name { font-size: 14px; font-weight: 800; color: #fff; line-height: 1.2; }
+.app-sub  { font-size: 11px; color: var(--w40); margin-top: 2px; line-height: 1.4; }
+.app-arrow { margin-left: auto; font-size: 14px; color: var(--w20); flex-shrink: 0; }
+
+.hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.stat-pill {
+  background: var(--w05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px; padding: 14px 22px; text-align: center; min-width: 120px;
+  transition: all 0.2s; backdrop-filter: blur(8px);
+}
+.stat-pill:hover { background: rgba(255,255,255,0.09); transform: translateY(-3px); }
+.stat-num { font-size: 2rem; font-weight: 900; line-height: 1; background: linear-gradient(135deg,var(--sky),var(--blue)); -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.stat-lbl { font-size: 10px; font-weight: 700; color: var(--w40); margin-top: 3px; letter-spacing: 0.5px; }
+
+/* scroll cue */
+.scroll-cue {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 5px;
+  color: var(--w20); font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; z-index: 2; animation: bob 2.2s ease-in-out infinite;
+}
+@keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
+
+/* ═══ SECTION SHARED ════════════════════════════════ */
+section { padding: 88px 0; }
+.sec-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase;
+  color: var(--sky); margin-bottom: 12px;
+}
+.sec-title {
+  font-size: clamp(1.7rem, 4vw, 2.7rem); font-weight: 900;
+  letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 14px;
+}
+.sec-body {
+  font-size: 0.95rem; color: var(--w60); line-height: 1.75; max-width: 560px; margin-bottom: 48px;
+}
+.divider-glow {
+  width: 100%; height: 1px; margin: 0;
+}
+.divider-blue   { background: linear-gradient(90deg,transparent,rgba(37,99,235,0.5),transparent); }
+.divider-green  { background: linear-gradient(90deg,transparent,rgba(16,185,129,0.5),transparent); }
+.divider-violet { background: linear-gradient(90deg,transparent,rgba(124,58,237,0.5),transparent); }
+
+/* ═══ BENTO GRID ════════════════════════════════════ */
+.bento-grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px;
+}
+.b1 { grid-column: span 7; }
+.b2 { grid-column: span 5; }
+.b3,.b4,.b5 { grid-column: span 4; }
+.b6 { grid-column: span 12; }
+.b7 { grid-column: span 5; }
+.b8 { grid-column: span 7; }
+
+.bento {
+  background: var(--navy3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 18px; padding: 28px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.bento:hover { transform: translateY(-3px); }
+.bento-au:hover   { border-color: rgba(56,189,248,0.4); }
+.bento-ab:hover   { border-color: rgba(16,185,129,0.4); }
+.bento-skl:hover  { border-color: rgba(167,139,250,0.4); }
+.bento-sal:hover  { border-color: rgba(165,180,252,0.4); }
+.bento-spmb:hover { border-color: rgba(236,72,153,0.4); }
+
+.tag {
+  display: inline-block; font-size: 10px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px; margin-bottom: 16px;
+}
+.tag-blue   { background: rgba(37,99,235,0.18);  color: var(--sky);   border: 1px solid rgba(56,189,248,0.28); }
+.tag-green  { background: rgba(16,185,129,0.15); color: #34d399;      border: 1px solid rgba(16,185,129,0.28); }
+.tag-amber  { background: rgba(245,158,11,0.15); color: #fcd34d;      border: 1px solid rgba(245,158,11,0.28); }
+.tag-violet { background: rgba(124,58,237,0.18); color: #a78bfa;      border: 1px solid rgba(124,58,237,0.28); }
+.tag-rose   { background: rgba(244,63,94,0.15);  color: #fda4af;      border: 1px solid rgba(244,63,94,0.28); }
+.tag-indigo { background: rgba(99,102,241,0.18); color: #a5b4fc;      border: 1px solid rgba(99,102,241,0.28); }
+.tag-pink   { background: rgba(236,72,153,0.15); color: #f9a8d4;      border: 1px solid rgba(236,72,153,0.28); }
+
+.bento-title { font-size: 1.1rem; font-weight: 800; margin-bottom: 8px; }
+.bento-desc  { font-size: 0.83rem; color: var(--w40); line-height: 1.65; }
+
+/* mini UI components */
+.mini-ui {
+  margin-top: 18px; background: var(--navy2);
+  border: 1px solid var(--w08); border-radius: 10px; padding: 14px;
+  font-family: 'DM Mono', monospace; font-size: 11px;
+}
+.mini-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 5px 0; border-bottom: 1px solid var(--w05);
+  color: var(--w40);
+}
+.mini-row:last-child { border-bottom: none; }
+.mini-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.mini-badge {
+  margin-left: auto; font-weight: 800; color: #fff;
+  background: rgba(37,99,235,0.22); border-radius: 5px; padding: 2px 8px;
+}
+
+/* bar */
+.bar-row { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.bar-lbl  { font-size: 11px; width: 86px; color: var(--w40); flex-shrink: 0; }
+.bar-track { flex: 1; height: 6px; background: var(--w08); border-radius: 3px; overflow: hidden; }
+.bar-fill  { height: 100%; border-radius: 3px; }
+
+/* flow steps */
+.flow { display: flex; flex-direction: column; }
+.flow-step { display: flex; gap: 14px; padding: 9px 0; position: relative; }
+.flow-step:not(:last-child)::after {
+  content: ''; position: absolute; left: 14px; top: 36px;
+  width: 1px; height: calc(100% - 14px); background: var(--w08);
+}
+.flow-num {
+  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; z-index: 1;
+}
+.flow-title { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 1px; padding-top: 4px; }
+.flow-sub   { font-size: 11px; color: var(--w40); line-height: 1.5; }
+
+/* highlight box */
+.hbox {
+  border-radius: 18px; padding: 28px 32px;
+  display: flex; gap: 18px; align-items: flex-start; margin-top: 40px;
+}
+.hbox-icon {
+  width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 22px;
+}
+.hbox-text { font-size: 0.9rem; color: var(--w60); line-height: 1.7; }
+.hbox-text strong { color: #fff; }
+
+/* soal rows (ABUTS) */
+.soal-row { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--w05); font-size: 11px; }
+.soal-row:last-child { border-bottom: none; }
+.soal-num { width: 26px; height: 26px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; flex-shrink: 0; }
+.soal-kunci { font-family: 'DM Mono',monospace; font-weight: 700; color: var(--w60); width: 18px; }
+.soal-bar-wrap { flex: 1; height: 5px; background: var(--w08); border-radius: 3px; overflow: hidden; }
+.soal-bar { height: 100%; border-radius: 3px; }
+.soal-tk { font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 5px; white-space: nowrap; }
+.tk-e { background: rgba(16,185,129,0.2); color: #6ee7b7; }
+.tk-m { background: rgba(245,158,11,0.2); color: #fcd34d; }
+.tk-h { background: rgba(239,68,68,0.2); color: #fca5a5; }
+
+/* SKL feature icons */
+.feature-list { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+.feature-item { display: flex; align-items: flex-start; gap: 10px; }
+.feature-check { width: 22px; height: 22px; border-radius: 7px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 11px; margin-top: 1px; }
+.feature-txt { font-size: 12px; color: var(--w60); line-height: 1.5; }
+.feature-txt strong { color: #fff; }
+
+/* output cards */
+.out-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin-top: 40px; }
+.out-card {
+  border: 1px solid var(--w08); border-radius: 14px; padding: 24px 18px;
+  text-align: center; background: var(--w05); transition: all 0.22s;
+}
+.out-card:hover { transform: translateY(-4px); }
+.out-icon { font-size: 2.2rem; margin-bottom: 10px; }
+.out-name { font-size: 13px; font-weight: 800; margin-bottom: 4px; }
+.out-desc { font-size: 11px; color: var(--w40); line-height: 1.5; }
+
+/* integration bridge */
+.bridge-flow {
+  display: flex; align-items: stretch; justify-content: center;
+  gap: 0; flex-wrap: wrap; margin-top: 48px;
+}
+.bnode {
+  text-align: center; padding: 24px 20px;
+  background: var(--w05); border: 1px solid var(--w08);
+  border-radius: 16px; flex: 1; min-width: 130px; max-width: 190px;
+  transition: all 0.22s; cursor: pointer;
+}
+.bnode:hover { transform: translateY(-3px); }
+.bnode-au:hover  { border-color: rgba(37,99,235,0.45); background: rgba(37,99,235,0.1); }
+.bnode-ab:hover  { border-color: rgba(16,185,129,0.45); background: rgba(16,185,129,0.1); }
+.bnode-skl:hover { border-color: rgba(124,58,237,0.45); background: rgba(124,58,237,0.1); }
+.bnode-icon { font-size: 1.9rem; margin-bottom: 8px; }
+.bnode-name { font-size: 13px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.bnode-desc { font-size: 11px; color: var(--w40); line-height: 1.45; }
+.barrow { padding: 0 6px; color: var(--w20); font-size: 20px; display: flex; align-items: center; }
+
+/* tech chips */
+.tech-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+.tech-chip {
+  display: flex; align-items: center; gap: 7px;
+  padding: 8px 16px; background: var(--w05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--w60);
+  transition: all 0.2s;
+}
+.tech-chip:hover { background: var(--w08); color: #fff; }
+.cdot { width: 7px; height: 7px; border-radius: 50%; }
+
+/* CTA */
+.cta-section {
+  text-align: center; padding: 100px 24px;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: ''; position: absolute;
+  width: 560px; height: 560px;
+  background: radial-gradient(circle,rgba(37,99,235,0.16) 0%,transparent 65%);
+  border-radius: 50%; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  pointer-events: none;
+}
+.cta-inner { position: relative; z-index: 1; }
+.cta-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(16,185,129,0.14); border: 1px solid rgba(16,185,129,0.32);
+  border-radius: 100px; padding: 6px 18px;
+  font-size: 12px; font-weight: 700; color: #34d399; margin-bottom: 24px;
+}
+.cta-title { font-size: clamp(2rem,5vw,3.6rem); font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin-bottom: 18px; }
+.cta-sub { font-size: 1rem; color: var(--w50,var(--w60)); margin-bottom: 40px; line-height: 1.65; }
+.wa-btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(22,163,74,0.15); border: 1.5px solid rgba(22,163,74,0.4);
+  color: #4ade80; padding: 15px 28px; border-radius: 14px;
+  font-size: 14px; font-weight: 700; text-decoration: none; transition: all 0.2s;
+}
+.wa-btn:hover { background: rgba(22,163,74,0.24); transform: translateY(-2px); }
+
+/* footer */
+footer {
+  border-top: 1px solid var(--w08); padding: 28px 24px;
+  text-align: center; font-size: 11px; color: var(--w20);
+}
+footer b { color: var(--w40); }
+
+/* ═══ REVEAL ANIMATION ══════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.55s ease, transform 0.55s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══ PAGE HEADER BANNER ════════════════════════════ */
+.page-banner {
+  padding: 80px 24px 60px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.page-banner::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background-image: radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size: 32px 32px;
+}
+.banner-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+.banner-title {
+  font-size: clamp(2.2rem,6vw,4.5rem); font-weight: 900;
+  letter-spacing: -1.5px; line-height: 1.0; margin-bottom: 16px;
+}
+.banner-sub { font-size: 1rem; color: var(--w60); line-height: 1.65; }
+
+/* back-to-home link */
+.back-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 700; color: var(--w40);
+  cursor: pointer; border: none; background: none; padding: 0;
+  transition: color 0.2s; margin-bottom: 20px;
+}
+.back-link:hover { color: #fff; }
+
+/* ═══ METRIC CARDS (ABUTS) ══════════════════════════ */
+.metric-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 36px; }
+.metric-card {
+  border: 1px solid var(--w08); border-radius: 14px; padding: 22px 18px;
+  text-align: center; background: var(--w05); position: relative; overflow: hidden;
+  transition: all 0.22s;
+}
+.metric-card:hover { transform: translateY(-3px); }
+.metric-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; border-radius: 0 0 14px 14px; }
+.mc-g::after { background: linear-gradient(90deg,var(--green),#34d399); }
+.mc-a::after { background: linear-gradient(90deg,var(--amber),#fbbf24); }
+.mc-r::after { background: linear-gradient(90deg,#ef4444,#f87171); }
+.metric-card:hover.mc-g { border-color: rgba(16,185,129,0.4); }
+.metric-card:hover.mc-a { border-color: rgba(245,158,11,0.4); }
+.metric-card:hover.mc-r { border-color: rgba(239,68,68,0.4); }
+.metric-lbl  { font-size: 10px; font-weight: 800; color: var(--w40); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; }
+.metric-name { font-size: 1rem; font-weight: 900; margin-bottom: 8px; }
+.metric-desc { font-size: 11px; color: var(--w40); line-height: 1.5; }
+.pill-row { display: flex; gap: 5px; justify-content: center; flex-wrap: wrap; margin: 8px 0; }
+.pill { font-size: 10px; font-weight: 800; padding: 2px 9px; border-radius: 20px; }
+
+/* ═══ SKL FEATURE GRID ══════════════════════════════ */
+.skl-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(230px,1fr)); gap: 14px; margin-top: 36px; }
+.skl-card {
+  background: var(--navy3); border: 1px solid var(--w08); border-radius: 16px; padding: 24px;
+  transition: all 0.22s;
+}
+.skl-card:hover { border-color: rgba(124,58,237,0.4); transform: translateY(-3px); }
+.sal-card { background: var(--navy3); border: 1px solid var(--w08); border-radius: 16px; padding: 24px; transition: all 0.22s; }
+.sal-card:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-3px); }
+.spmb-card { background: var(--navy3); border: 1px solid var(--w08); border-radius: 16px; padding: 24px; transition: all 0.22s; }
+.spmb-card:hover { border-color: rgba(236,72,153,0.4); transform: translateY(-3px); }
+.spmb-card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.spmb-card-title { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+.spmb-card-desc { font-size: 12px; color: var(--w40); line-height: 1.6; }
+.sal-card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.sal-card-title { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+.sal-card-desc { font-size: 12px; color: var(--w40); line-height: 1.6; }
+.quiz-type-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap: 10px; margin-top: 18px; }
+.qt-chip { border-radius: 12px; padding: 14px 12px; text-align: center; border: 1px solid var(--w08); background: var(--w05); transition: all 0.2s; }
+.qt-chip:hover { transform: translateY(-2px); }
+.qt-icon { font-size: 1.5rem; margin-bottom: 6px; }
+.qt-name { font-size: 11px; font-weight: 800; color: #fff; margin-bottom: 2px; }
+.qt-desc { font-size: 10px; color: var(--w40); line-height: 1.4; }
+.skl-card-icon { font-size: 1.8rem; margin-bottom: 12px; }
+.skl-card-title { font-size: 14px; font-weight: 800; margin-bottom: 6px; }
+.skl-card-desc { font-size: 12px; color: var(--w40); line-height: 1.6; }
+
+/* ═══ RESPONSIVE ════════════════════════════════════ */
+@media (max-width: 768px) {
+  .b1,.b2,.b3,.b4,.b5,.b6,.b7,.b8 { grid-column: span 12; }
+  .metric-grid { grid-template-columns: 1fr; }
+  .bridge-flow { flex-direction: column; align-items: center; }
+  .barrow { transform: rotate(90deg); }
+  .app-trio { flex-direction: column; align-items: center; }
+  .app-card { max-width: 100%; width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ NAVBAR ══════════════════════════════════════ -->
+<nav>
+  <div class="nav-logo" onclick="gotoPage('home')" style="cursor:pointer;">
+    🎓 <span>Edu</span>Apps
+  </div>
+  <div class="nav-pills">
+    <button class="npill npill-home active" id="pill-home" onclick="gotoPage('home')">
+      <div class="dot" style="background:var(--sky);"></div> Beranda
+    </button>
+    <button class="npill npill-home" id="pill-abon" onclick="gotoPage('abon')">
+      <div class="dot" style="background:var(--blue);"></div> Abon Urap
+    </button>
+    <button class="npill npill-abuts" id="pill-abuts" onclick="gotoPage('abuts')">
+      <div class="dot" style="background:var(--green);"></div> ABUTS
+    </button>
+    <button class="npill npill-skl" id="pill-skl" onclick="gotoPage('skl')">
+      <div class="dot" style="background:var(--violet);"></div> SKL & Ijazah
+    </button>
+    <button class="npill npill-sal" id="pill-sal" onclick="gotoPage('sal')">
+      <div class="dot" style="background:var(--indigo);"></div> Salindia Interaktif
+    </button>
+    <button class="npill npill-spmb" id="pill-spmb" onclick="gotoPage('spmb')">
+      <div class="dot" style="background:var(--pink);"></div> SPMB SD
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: HOME (DASHBOARD)
+════════════════════════════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">🏫 Ekosistem Aplikasi Digital Sekolah Dasar</div>
+      <h1 class="hero-title">Lima Aplikasi.<br>Satu Ekosistem.</h1>
+      <p class="hero-sub">
+        Dari penerimaan murid baru, presentasi interaktif, pengolahan nilai,<br>
+        analisis butir soal, hingga cetak SKL dan ijazah — semuanya offline, aman, terintegrasi.
+      </p>
+
+      <!-- App trio clickable -->
+      <div class="app-trio">
+        <div class="app-card app-card-au" onclick="gotoPage('abon')">
+          <div class="app-icon">🎓</div>
+          <div>
+            <div class="app-name">Abon Urap</div>
+            <div class="app-sub">Olah nilai & cetak rapor semester</div>
+          </div>
+          <div class="app-arrow">→</div>
+        </div>
+        <div class="app-card app-card-ab" onclick="gotoPage('abuts')">
+          <div class="app-icon">🔬</div>
+          <div>
+            <div class="app-name">ABUTS</div>
+            <div class="app-sub">Analisis butir soal & kualitas tes</div>
+          </div>
+          <div class="app-arrow">→</div>
+        </div>
+        <div class="app-card app-card-skl" onclick="gotoPage('skl')">
+          <div class="app-icon">📜</div>
+          <div>
+            <div class="app-name">SKL & Ijazah</div>
+            <div class="app-sub">Pengolah nilai & cetak dokumen kelulusan</div>
+          </div>
+          <div class="app-arrow">→</div>
+        </div>
+        <div class="app-card app-card-sal" onclick="gotoPage('sal')">
+          <div class="app-icon">🎬</div>
+          <div>
+            <div class="app-name">Salindia Interaktif</div>
+            <div class="app-sub">Presentasi + kuis real-time untuk kelas</div>
+          </div>
+          <div class="app-arrow">→</div>
+        </div>
+        <div class="app-card app-card-spmb" onclick="gotoPage('spmb')">
+          <div class="app-icon">📋</div>
+          <div>
+            <div class="app-name">SPMB SD</div>
+            <div class="app-sub">Sistem pendaftaran murid baru terpadu</div>
+          </div>
+          <div class="app-arrow">→</div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-pill"><div class="stat-num">5</div><div class="stat-lbl">Aplikasi Terintegrasi</div></div>
+        <div class="stat-pill"><div class="stat-num">100%</div><div class="stat-lbl">Offline Ready</div></div>
+        <div class="stat-pill"><div class="stat-num">0</div><div class="stat-lbl">Data ke Server Luar</div></div>
+        <div class="stat-pill"><div class="stat-num">∞</div><div class="stat-lbl">Siswa & Dokumen</div></div>
+      </div>
+    </div>
+    <div class="scroll-cue">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      Scroll
+    </div>
+  </div>
+
+  <!-- INTEGRATION BRIDGE -->
+  <div style="background:linear-gradient(135deg,#1e293b,#0f172a);border-top:1px solid var(--w08);border-bottom:1px solid var(--w08);padding:72px 24px;">
+    <div class="wrap">
+      <div class="sec-label" style="text-align:center;color:var(--sky);">Ekosistem Terintegrasi</div>
+      <h2 class="sec-title" style="text-align:center;">Satu Data Siswa,<br>Lima Alat Bantu Guru</h2>
+      <p class="sec-body reveal" style="text-align:center;margin:0 auto 0;">Dari pendaftaran siswa baru hingga cetak ijazah kelulusan — data mengalir satu arah, satu kode aktivasi, ekosistem lengkap.</p>
+      <div class="bridge-flow reveal">
+        <div class="bnode" style="border-color:rgba(236,72,153,0.3);background:rgba(236,72,153,0.08);" onclick="gotoPage('spmb')">
+          <div class="bnode-icon">📋</div>
+          <div class="bnode-name">SPMB SD</div>
+          <div class="bnode-desc">Penerimaan murid baru</div>
+        </div>
+        <div class="barrow">→</div>
+        <div class="bnode" style="border-color:rgba(37,99,235,0.3);background:rgba(37,99,235,0.08);flex:1.3;" onclick="gotoPage('abon')">
+          <div class="bnode-icon">👤</div>
+          <div class="bnode-name">Data Siswa</div>
+          <div class="bnode-desc">Import Dapodik sekali, dipakai semua modul</div>
+        </div>
+        <div class="barrow">↕</div>
+        <div class="bnode bnode-ab" onclick="gotoPage('abuts')">
+          <div class="bnode-icon">🔬</div>
+          <div class="bnode-name">ABUTS</div>
+          <div class="bnode-desc">Analisis kualitas soal ujian</div>
+        </div>
+        <div class="barrow">↕</div>
+        <div class="bnode bnode-skl" onclick="gotoPage('skl')">
+          <div class="bnode-icon">📜</div>
+          <div class="bnode-name">SKL & Ijazah</div>
+          <div class="bnode-desc">Dokumen kelulusan resmi</div>
+        </div>
+        <div class="barrow">→</div>
+        <div class="bnode bnode-au" onclick="gotoPage('abon')">
+          <div class="bnode-icon">🎓</div>
+          <div class="bnode-name">Abon Urap</div>
+          <div class="bnode-desc">Rapor semester & nilai TP</div>
+        </div>
+        <div class="barrow">→</div>
+        <div class="bnode" style="border-color:rgba(99,102,241,0.3);background:rgba(99,102,241,0.08);" onclick="gotoPage('sal')">
+          <div class="bnode-icon">🎬</div>
+          <div class="bnode-name">Salindia Interaktif</div>
+          <div class="bnode-desc">Presentasi & kuis real-time</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAIN POINTS -->
+  <div class="wrap">
+    <section>
+      <div class="sec-label">Masalah yang Kami Selesaikan</div>
+      <h2 class="sec-title">Kenapa Guru<br>Butuh Ini?</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px;">
+        <div class="bento reveal" style="border-left:3px solid rgba(239,68,68,0.5);">
+          <div style="font-size:1.8rem;margin-bottom:12px;">😩</div>
+          <div class="bento-title" style="font-size:1rem;">Input Nilai Manual = Rawan Salah</div>
+          <div class="bento-desc">Spreadsheet biasa butuh berjam-jam dan rentan salah ketik yang merusak rapor siswa.</div>
+        </div>
+        <div class="bento reveal" style="border-left:3px solid rgba(245,158,11,0.5);">
+          <div style="font-size:1.8rem;margin-bottom:12px;">⏰</div>
+          <div class="bento-title" style="font-size:1rem;">Deadline Rapor & SKL Mepet</div>
+          <div class="bento-desc">Cetak rapor, transkrip, SKL, dan ijazah harus selesai dalam waktu bersamaan — tanpa alat yang tepat ini sangat menyulitkan.</div>
+        </div>
+        <div class="bento reveal" style="border-left:3px solid rgba(16,185,129,0.5);">
+          <div style="font-size:1.8rem;margin-bottom:12px;">📡</div>
+          <div class="bento-title" style="font-size:1rem;">Bergantung Internet & Server</div>
+          <div class="bento-desc">Sekolah di daerah terpencil tidak bisa mengandalkan aplikasi berbasis cloud. Ketiga aplikasi ini berjalan penuh offline.</div>
+        </div>
+        <div class="bento reveal" style="border-left:3px solid rgba(124,58,237,0.5);">
+          <div style="font-size:1.8rem;margin-bottom:12px;">🔍</div>
+          <div class="bento-title" style="font-size:1rem;">Kualitas Soal Tidak Terukur</div>
+          <div class="bento-desc">Guru tidak tahu soal mana yang terlalu mudah, sulit, atau dijawab keliru oleh mayoritas siswa tanpa analisis butir soal.</div>
+        </div>
+        <div class="bento reveal" style="border-left:3px solid rgba(99,102,241,0.5);">
+          <div style="font-size:1.8rem;margin-bottom:12px;">😴</div>
+          <div class="bento-title" style="font-size:1rem;">Presentasi Satu Arah Membosankan</div>
+          <div class="bento-desc">Slide biasa hanya ditonton — peserta pasif dan tidak ada cara cepat untuk mengukur pemahaman kelas secara real-time.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- CTA HOME -->
+  <div class="cta-section">
+    <div class="cta-inner reveal">
+      <div class="cta-badge">✅ Siap Digunakan Hari Ini</div>
+      <h2 class="cta-title">Mulai Gunakan<br>Ekosistem Lengkap Ini</h2>
+      <p class="cta-sub">Satu kode aktivasi WhatsApp untuk ketiga aplikasi.<br>Data sekolah diisi sekali, langsung bisa digunakan.</p>
+      <a class="wa-btn" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.122 1.523 5.86L.053 23.25a.75.75 0 00.946.946l5.39-1.47A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.928-1.338l-.354-.21-3.666 1 .962-3.52-.23-.367A9.73 9.73 0 012.25 12C2.25 6.59 6.59 2.25 12 2.25S21.75 6.59 21.75 12 17.41 21.75 12 21.75z"/></svg>
+        Minta Kode Aktivasi via WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <footer><b>EduApps</b> — Abon Urap · ABUTS · SKL & Ijazah · Salindia Interaktif · © 2025 · Data tersimpan lokal, tidak dikirim ke server manapun</footer>
+</div><!-- /page-home -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: ABON URAP
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-abon">
+  <!-- BANNER -->
+  <div class="page-banner pt-nav" style="background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(37,99,235,0.25) 0%,transparent 65%);">
+    <div class="banner-inner">
+      <button class="back-link" onclick="gotoPage('home')">← Kembali ke Beranda</button>
+      <div class="eyebrow">🎓 Aplikasi 1 dari 3</div>
+      <h1 class="banner-title" style="background:linear-gradient(135deg,#fff 0%,#93c5fd 60%,var(--sky) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Abon Urap</h1>
+      <p class="banner-sub">Alat Bantu Olah Nilai untuk Rapor — pengolahan nilai harian, PTS, PAS, deskripsi otomatis, dan cetak rapor sesuai standar Kemendikbud.</p>
+    </div>
+  </div>
+  <div class="divider-glow divider-blue"></div>
+
+  <!-- FEATURES -->
+  <div class="wrap">
+    <section>
+      <div class="sec-label">Fitur Unggulan</div>
+      <h2 class="sec-title">Semua yang Guru Butuhkan<br>Ada di Satu Tempat</h2>
+      <p class="sec-body">Dari data siswa hingga rapor tercetak — Abon Urap menangani seluruh alur kerja tanpa kerumitan.</p>
+
+      <div class="bento-grid">
+        <!-- Input Nilai -->
+        <div class="bento bento-au b1 reveal">
+          <div class="tag tag-blue">📊 Input Nilai</div>
+          <div class="bento-title">Tabel Nilai Interaktif + Auto-Hitung</div>
+          <div class="bento-desc">Input nilai per Tujuan Pembelajaran (TP) tiap siswa. Rata-rata, bobot PTS/PAS, dan nilai akhir dihitung otomatis real-time.</div>
+          <div class="mini-ui">
+            <div class="mini-row"><div class="mini-dot" style="background:#10b981;"></div>Ahmad Rizki — Matematika<div class="mini-badge">87</div></div>
+            <div class="mini-row"><div class="mini-dot" style="background:#3b82f6;"></div>Siti Rahma — Matematika<div class="mini-badge">92</div></div>
+            <div class="mini-row"><div class="mini-dot" style="background:#f59e0b;"></div>Budi Santoso — Matematika<div class="mini-badge">78</div></div>
+            <div class="mini-row"><div class="mini-dot" style="background:#a78bfa;"></div>Dewi Lestari — Matematika<div class="mini-badge">95</div></div>
+          </div>
+        </div>
+        <!-- Deskripsi Otomatis -->
+        <div class="bento bento-au b2 reveal">
+          <div class="tag tag-amber">✍️ Auto Deskripsi</div>
+          <div class="bento-title">Narasi Rapor Dibuat Sendiri</div>
+          <div class="bento-desc">Kalimat deskripsi pencapaian per mapel dihasilkan otomatis berdasarkan nilai dan TP — tidak perlu ketik manual.</div>
+          <div style="margin-top:18px;background:var(--navy2);border-radius:10px;padding:14px;font-size:11px;line-height:1.75;color:var(--w40);">
+            <span style="color:var(--amber);font-weight:700;">Matematika:</span><br>
+            <span style="color:var(--w60);">Ahmad menunjukkan kemampuan sangat baik dalam operasi bilangan. Perlu peningkatan pada geometri bangun datar.</span>
+          </div>
+        </div>
+        <!-- Pembobotan -->
+        <div class="bento bento-au b3 reveal">
+          <div class="tag tag-violet">⚖️ Pembobotan</div>
+          <div class="bento-title">Atur Bobot PH, PTS & PAS</div>
+          <div class="bento-desc">Sesuaikan persentase sesuai kebijakan sekolah.</div>
+          <div>
+            <div class="bar-row"><div class="bar-lbl">PH (Harian)</div><div class="bar-track"><div class="bar-fill" style="width:60%;background:linear-gradient(90deg,var(--blue),var(--sky));"></div></div><span style="font-size:10px;color:var(--w40);">60%</span></div>
+            <div class="bar-row"><div class="bar-lbl">PTS</div><div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,var(--amber),#fbbf24);"></div></div><span style="font-size:10px;color:var(--w40);">20%</span></div>
+            <div class="bar-row"><div class="bar-lbl">PAS / PAT</div><div class="bar-track"><div class="bar-fill" style="width:20%;background:linear-gradient(90deg,var(--green),#34d399);"></div></div><span style="font-size:10px;color:var(--w40);">20%</span></div>
+          </div>
+        </div>
+        <!-- Data Siswa -->
+        <div class="bento bento-au b4 reveal">
+          <div class="tag tag-green">👤 Data Siswa</div>
+          <div class="bento-title">Kelola Data Siswa Lengkap</div>
+          <div class="bento-desc">Input, edit, urut, dan hapus siswa. Mendukung absensi, catatan wali kelas, dan prestasi non-akademik.</div>
+        </div>
+        <!-- Kokurikuler -->
+        <div class="bento bento-au b5 reveal">
+          <div class="tag tag-rose">🎭 Kokurikuler</div>
+          <div class="bento-title">Nilai Proyek P5 & Ekskul</div>
+          <div class="bento-desc">Capaian proyek kokurikuler & ekstrakurikuler otomatis masuk laporan rapor.</div>
+        </div>
+        <!-- Alur Kerja -->
+        <div class="bento bento-au b6 reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+          <div>
+            <div class="tag tag-blue">🔄 Alur Kerja</div>
+            <div class="bento-title">Dari Data Hingga Rapor Tercetak</div>
+            <div class="bento-desc">Sistem mengikuti alur kerja guru yang sesungguhnya — tidak memaksa prosedur baru yang membingungkan.</div>
+          </div>
+          <div class="flow">
+            <div class="flow-step"><div class="flow-num" style="background:rgba(37,99,235,0.22);color:var(--sky);">1</div><div><div class="flow-title">Setup Data Sekolah & Siswa</div><div class="flow-sub">Profil sekolah, kepsek, guru, daftar siswa — diisi sekali.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(245,158,11,0.18);color:var(--amber);">2</div><div><div class="flow-title">Konfigurasi Mapel & TP</div><div class="flow-sub">Tambah mata pelajaran, Tujuan Pembelajaran, bobot penilaian.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(16,185,129,0.18);color:#34d399;">3</div><div><div class="flow-title">Input & Verifikasi Nilai</div><div class="flow-sub">Masukkan nilai tiap TP — rata-rata terhitung otomatis.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(124,58,237,0.18);color:#a78bfa;">4</div><div><div class="flow-title">Cetak Rapor</div><div class="flow-sub">Preview dan cetak rapor individual atau seluruh kelas.</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output -->
+      <div style="margin-top:64px;">
+        <div class="sec-label">Format Output</div>
+        <h2 class="sec-title">Dokumen Siap Cetak</h2>
+        <div class="out-grid">
+          <div class="out-card reveal" style="border-color:rgba(37,99,235,0.2);"><div class="out-icon">📄</div><div class="out-name">Rapor Semester</div><div class="out-desc">Rapor lengkap per siswa dengan nilai, deskripsi & absensi.</div></div>
+          <div class="out-card reveal" style="border-color:rgba(37,99,235,0.2);"><div class="out-icon">📊</div><div class="out-name">Daftar Nilai Kelas</div><div class="out-desc">Rekap nilai seluruh siswa per mata pelajaran.</div></div>
+          <div class="out-card reveal" style="border-color:rgba(37,99,235,0.2);"><div class="out-icon">🎯</div><div class="out-name">Capaian Per TP</div><div class="out-desc">Laporan detail pencapaian tiap Tujuan Pembelajaran.</div></div>
+          <div class="out-card reveal" style="border-color:rgba(37,99,235,0.2);"><div class="out-icon">🎭</div><div class="out-name">Laporan Kokurikuler</div><div class="out-desc">Rekap kegiatan proyek P5 dan ekstrakurikuler.</div></div>
+          <div class="out-card reveal" style="border-color:rgba(37,99,235,0.2);"><div class="out-icon">📅</div><div class="out-name">Data Periodik</div><div class="out-desc">Perkembangan nilai dari periode ke periode.</div></div>
+        </div>
+      </div>
+
+      <div class="hbox reveal" style="background:linear-gradient(135deg,rgba(37,99,235,0.12),rgba(56,189,248,0.06));border:1px solid rgba(37,99,235,0.28);">
+        <div class="hbox-icon" style="background:rgba(37,99,235,0.22);">🔒</div>
+        <div class="hbox-text"><strong>Data Nilai Siswa Tidak Pernah Meninggalkan Komputer Anda.</strong> Abon Urap berjalan sepenuhnya lokal — tidak ada upload ke cloud, tidak ada server pihak ketiga. Aktivasi sekali via WhatsApp, pakai selamanya offline.</div>
+      </div>
+
+      <!-- Explore others -->
+      <div style="margin-top:64px;text-align:center;">
+        <div class="sec-label" style="margin-bottom:16px;">Jelajahi Aplikasi Lainnya</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <div class="app-card app-card-ab" onclick="gotoPage('abuts')" style="max-width:220px;cursor:pointer;">
+            <div class="app-icon">🔬</div><div><div class="app-name">ABUTS</div><div class="app-sub">Analisis Butir Soal</div></div><div class="app-arrow">→</div>
+          </div>
+          <div class="app-card app-card-skl" onclick="gotoPage('skl')" style="max-width:220px;cursor:pointer;">
+            <div class="app-icon">📜</div><div><div class="app-name">SKL & Ijazah</div><div class="app-sub">Dokumen Kelulusan</div></div><div class="app-arrow">→</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer><b>Abon Urap</b> v3.2 — bagian dari ekosistem EduApps · © 2025</footer>
+</div><!-- /page-abon -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: ABUTS
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-abuts">
+  <!-- BANNER -->
+  <div class="page-banner pt-nav" style="background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(16,185,129,0.22) 0%,transparent 65%);">
+    <div class="banner-inner">
+      <button class="back-link" onclick="gotoPage('home')">← Kembali ke Beranda</button>
+      <div class="eyebrow" style="border-color:rgba(16,185,129,0.35);color:#34d399;background:rgba(16,185,129,0.12);">🔬 Aplikasi 2 dari 3</div>
+      <h1 class="banner-title" style="background:linear-gradient(135deg,#fff 0%,#6ee7b7 55%,#34d399 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">ABUTS</h1>
+      <p class="banner-sub">Analisis Butir Soal — alat diagnostik yang membantu guru memahami kualitas setiap soal ujian: tingkat kesukaran, distribusi jawaban, dan identifikasi soal bermasalah.</p>
+    </div>
+  </div>
+  <div class="divider-glow divider-green"></div>
+
+  <div class="wrap">
+    <section>
+      <!-- Metric Cards -->
+      <div class="sec-label" style="color:#34d399;">Tiga Dimensi Analisis</div>
+      <h2 class="sec-title">Ukur Kualitas Soal<br>Secara Objektif</h2>
+      <p class="sec-body">ABUTS menganalisis jawaban siswa per butir soal dan menghasilkan laporan yang membantu guru memperbaiki bank soal dan merencanakan remedi.</p>
+
+      <div class="metric-grid reveal">
+        <div class="metric-card mc-g">
+          <div class="metric-lbl">Tingkat Kesukaran</div>
+          <div class="metric-name" style="color:#34d399;">Proporsi (P)</div>
+          <div class="pill-row">
+            <span class="pill" style="background:rgba(16,185,129,0.2);color:#6ee7b7;">🟢 Mudah ≥76%</span>
+            <span class="pill" style="background:rgba(245,158,11,0.2);color:#fcd34d;">🟡 Sedang 26–75%</span>
+            <span class="pill" style="background:rgba(239,68,68,0.2);color:#fca5a5;">🔴 Sulit &lt;26%</span>
+          </div>
+          <div class="metric-desc">% siswa yang menjawab benar tiap butir soal PG dihitung otomatis.</div>
+        </div>
+        <div class="metric-card mc-a">
+          <div class="metric-lbl">Rekap Otomatis</div>
+          <div class="metric-name" style="color:#fcd34d;">Per Ujian & Kelas</div>
+          <div class="pill-row">
+            <span class="pill" style="background:rgba(245,158,11,0.15);color:#fcd34d;">📊 Tabel Butir</span>
+            <span class="pill" style="background:rgba(245,158,11,0.15);color:#fcd34d;">📋 Rekap Siswa</span>
+            <span class="pill" style="background:rgba(245,158,11,0.15);color:#fcd34d;">📈 Dashboard</span>
+          </div>
+          <div class="metric-desc">Semua rekap dihitung otomatis begitu jawaban siswa diinput.</div>
+        </div>
+        <div class="metric-card mc-r">
+          <div class="metric-lbl">Identifikasi Soal Bermasalah</div>
+          <div class="metric-name" style="color:#fca5a5;">Intervensi Tepat</div>
+          <div class="pill-row">
+            <span class="pill" style="background:rgba(239,68,68,0.15);color:#fca5a5;">Siapa Salah</span>
+            <span class="pill" style="background:rgba(239,68,68,0.15);color:#fca5a5;">Siapa Benar</span>
+          </div>
+          <div class="metric-desc">Lihat nama siswa yang menjawab benar/salah per soal untuk remedi terarah.</div>
+        </div>
+      </div>
+
+      <!-- Bento ABUTS -->
+      <div class="bento-grid" style="margin-top:0;">
+        <!-- Visualisasi Butir -->
+        <div class="bento bento-ab b8 reveal">
+          <div class="tag tag-green">📊 Analisis Per Butir</div>
+          <div class="bento-title">Visualisasi Kualitas Setiap Soal</div>
+          <div class="bento-desc">Setiap butir ditampilkan dengan % benar, tingkat kesukaran berwarna, dan daftar nama siswa yang menjawab benar & salah.</div>
+          <div class="mini-ui" style="margin-top:14px;">
+            <div class="soal-row"><div class="soal-num" style="background:rgba(16,185,129,0.2);color:#34d399;">1</div><div class="soal-kunci">A</div><div class="soal-bar-wrap"><div class="soal-bar" style="width:88%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div><span style="font-size:10px;color:var(--w40);width:30px;text-align:right;">88%</span><span class="soal-tk tk-e">Mudah</span></div>
+            <div class="soal-row"><div class="soal-num" style="background:rgba(245,158,11,0.2);color:#fcd34d;">2</div><div class="soal-kunci">C</div><div class="soal-bar-wrap"><div class="soal-bar" style="width:54%;background:linear-gradient(90deg,#f59e0b,#fbbf24);"></div></div><span style="font-size:10px;color:var(--w40);width:30px;text-align:right;">54%</span><span class="soal-tk tk-m">Sedang</span></div>
+            <div class="soal-row"><div class="soal-num" style="background:rgba(239,68,68,0.2);color:#fca5a5;">3</div><div class="soal-kunci">B</div><div class="soal-bar-wrap"><div class="soal-bar" style="width:21%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div><span style="font-size:10px;color:var(--w40);width:30px;text-align:right;">21%</span><span class="soal-tk tk-h">Sulit</span></div>
+            <div class="soal-row"><div class="soal-num" style="background:rgba(56,189,248,0.2);color:var(--sky);">4</div><div class="soal-kunci">D</div><div class="soal-bar-wrap"><div class="soal-bar" style="width:71%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);"></div></div><span style="font-size:10px;color:var(--w40);width:30px;text-align:right;">71%</span><span class="soal-tk tk-m">Sedang</span></div>
+            <div class="soal-row"><div class="soal-num" style="background:rgba(239,68,68,0.2);color:#fca5a5;">5</div><div class="soal-kunci">A</div><div class="soal-bar-wrap"><div class="soal-bar" style="width:18%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div><span style="font-size:10px;color:var(--w40);width:30px;text-align:right;">18%</span><span class="soal-tk tk-h">Sulit</span></div>
+          </div>
+        </div>
+
+        <!-- Distribusi -->
+        <div class="bento bento-ab b7 reveal">
+          <div class="tag tag-green">🎯 Distribusi Soal</div>
+          <div class="bento-title">Komposisi Tingkat Kesukaran</div>
+          <div class="bento-desc">Lihat proporsi soal mudah, sedang, dan sulit secara visual. Panduan komposisi ideal juga disediakan.</div>
+          <div style="margin-top:18px;">
+            <div style="font-size:10px;font-weight:700;color:var(--w40);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px;">Contoh distribusi 40 soal</div>
+            <div style="display:flex;border-radius:10px;overflow:hidden;height:28px;">
+              <div style="flex:30;background:linear-gradient(90deg,#059669,#10b981);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">30%</div>
+              <div style="flex:50;background:linear-gradient(90deg,#d97706,#f59e0b);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">50%</div>
+              <div style="flex:20;background:linear-gradient(90deg,#dc2626,#ef4444);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;">20%</div>
+            </div>
+            <div style="display:flex;margin-top:7px;">
+              <div style="flex:30;text-align:center;font-size:10px;color:var(--w40);">🟢 Mudah<br>12 soal</div>
+              <div style="flex:50;text-align:center;font-size:10px;color:var(--w40);">🟡 Sedang<br>20 soal</div>
+              <div style="flex:20;text-align:center;font-size:10px;color:var(--w40);">🔴 Sulit<br>8 soal</div>
+            </div>
+          </div>
+          <div style="margin-top:16px;padding:11px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.18);border-radius:9px;font-size:11px;color:var(--w60);line-height:1.6;">
+            💡 Ideal: <strong style="color:#34d399;">~30% mudah, 50% sedang, 20% sulit</strong> untuk soal formatif.
+          </div>
+        </div>
+
+        <!-- Manajemen Ujian -->
+        <div class="bento bento-ab b3 reveal">
+          <div class="tag tag-green">📝 Manajemen</div>
+          <div class="bento-title">Multi-Ujian & Multi-Paket</div>
+          <div class="bento-desc">Kelola banyak ujian sekaligus dengan hingga 3 paket soal berbeda per ujian.</div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:var(--w05);border-radius:8px;font-size:11px;"><span>📘</span><span style="color:var(--w60);">PTS Matematika Kls 6</span><span style="margin-left:auto;font-size:10px;background:rgba(16,185,129,0.2);color:#34d399;padding:2px 7px;border-radius:4px;font-weight:700;">3 Paket</span></div>
+            <div style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:var(--w05);border-radius:8px;font-size:11px;"><span>📗</span><span style="color:var(--w60);">PAS IPA Kelas 5</span><span style="margin-left:auto;font-size:10px;background:rgba(245,158,11,0.2);color:#fcd34d;padding:2px 7px;border-radius:4px;font-weight:700;">2 Paket</span></div>
+            <div style="display:flex;align-items:center;gap:7px;padding:8px 11px;background:var(--w05);border-radius:8px;font-size:11px;"><span>📕</span><span style="color:var(--w60);">UH B. Indonesia Kls 4</span><span style="margin-left:auto;font-size:10px;background:rgba(56,189,248,0.2);color:var(--sky);padding:2px 7px;border-radius:4px;font-weight:700;">1 Paket</span></div>
+          </div>
+        </div>
+
+        <!-- Input Jawaban -->
+        <div class="bento bento-ab b4 reveal">
+          <div class="tag tag-amber">✏️ Input</div>
+          <div class="bento-title">Input Jawaban Per Siswa</div>
+          <div class="bento-desc">Pilih kelas → pilih ujian → klik nama siswa → isi jawaban. Bisa per soal atau total skor langsung.</div>
+          <div style="margin-top:14px;display:flex;flex-wrap:wrap;gap:5px;">
+            <span style="font-size:11px;font-family:'DM Mono',monospace;padding:4px 8px;border-radius:7px;background:rgba(56,189,248,0.15);color:var(--sky);font-weight:700;">A</span>
+            <span style="font-size:11px;font-family:'DM Mono',monospace;padding:4px 8px;border-radius:7px;background:var(--w08);color:var(--w40);">B</span>
+            <span style="font-size:11px;font-family:'DM Mono',monospace;padding:4px 8px;border-radius:7px;background:rgba(16,185,129,0.15);color:#34d399;font-weight:700;">C</span>
+            <span style="font-size:11px;font-family:'DM Mono',monospace;padding:4px 8px;border-radius:7px;background:var(--w08);color:var(--w40);">D</span>
+          </div>
+          <div style="margin-top:11px;font-size:11px;color:var(--w40);line-height:1.6;">Mendukung soal <strong style="color:var(--w60);">PG, Isian, dan Uraian</strong> dalam satu ujian.</div>
+        </div>
+
+        <!-- Ekspor -->
+        <div class="bento bento-ab b5 reveal">
+          <div class="tag tag-violet">📤 Ekspor</div>
+          <div class="bento-title">PDF & Excel Siap Arsip</div>
+          <div class="bento-desc">Laporan analisis diekspor ke PDF atau Excel untuk pelaporan ke kepala sekolah.</div>
+          <div style="margin-top:14px;display:flex;gap:8px;">
+            <div style="flex:1;padding:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.22);border-radius:9px;text-align:center;"><div style="font-size:1.6rem;">📄</div><div style="font-size:11px;font-weight:800;color:#fca5a5;margin-top:3px;">PDF</div><div style="font-size:10px;color:var(--w40);">Siap Cetak</div></div>
+            <div style="flex:1;padding:10px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.22);border-radius:9px;text-align:center;"><div style="font-size:1.6rem;">📊</div><div style="font-size:11px;font-weight:800;color:#34d399;margin-top:3px;">Excel</div><div style="font-size:10px;color:var(--w40);">Analisis Lanjut</div></div>
+          </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div class="bento bento-ab b6 reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+          <div>
+            <div class="tag tag-green">📈 Dashboard</div>
+            <div class="bento-title">Pantau Progress Input Semua Ujian</div>
+            <div class="bento-desc">Dashboard ABUTS menampilkan progress input jawaban per ujian per kelas — guru tahu ujian mana yang belum selesai dianalisis.</div>
+            <div style="margin-top:18px;padding:14px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.18);border-radius:11px;">
+              <div style="font-size:10px;color:var(--w40);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Siswa Aktif</div>
+              <div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,#10b981,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">32</div>
+              <div style="font-size:11px;color:var(--w40);margin-top:3px;">dari 3 kelas · 5 ujian aktif</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:var(--w40);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px;">Progress Input Jawaban</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>PTS Matematika</span><span style="color:#34d399;font-weight:700;">32/32</span></div><div class="bar-track" style="height:5px;"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>PAS IPA Kelas 5</span><span style="color:#fcd34d;font-weight:700;">24/32</span></div><div class="bar-track" style="height:5px;"><div class="bar-fill" style="width:75%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>UH B. Indonesia</span><span style="color:var(--sky);font-weight:700;">18/32</span></div><div class="bar-track" style="height:5px;"><div class="bar-fill" style="width:56%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>PTS PPKN</span><span style="color:var(--w40);font-weight:700;">8/32</span></div><div class="bar-track" style="height:5px;"><div class="bar-fill" style="width:25%;background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hbox reveal" style="background:linear-gradient(135deg,rgba(16,185,129,0.1),rgba(56,189,248,0.05));border:1px solid rgba(16,185,129,0.26);">
+        <div class="hbox-icon" style="background:rgba(16,185,129,0.18);">🔬</div>
+        <div class="hbox-text"><strong>Gunakan ABUTS untuk Meningkatkan Kualitas Soal.</strong> Dengan mengetahui soal mana yang terlalu mudah, sulit, atau dijawab keliru banyak siswa, guru bisa <strong>memperbaiki bank soal</strong> dan merancang pembelajaran remedi yang lebih efektif dan terarah.</div>
+      </div>
+
+      <div style="margin-top:64px;text-align:center;">
+        <div class="sec-label" style="color:#34d399;margin-bottom:16px;">Jelajahi Aplikasi Lainnya</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <div class="app-card app-card-au" onclick="gotoPage('abon')" style="max-width:220px;cursor:pointer;"><div class="app-icon">🎓</div><div><div class="app-name">Abon Urap</div><div class="app-sub">Olah Nilai Rapor</div></div><div class="app-arrow">→</div></div>
+          <div class="app-card app-card-skl" onclick="gotoPage('skl')" style="max-width:220px;cursor:pointer;"><div class="app-icon">📜</div><div><div class="app-name">SKL & Ijazah</div><div class="app-sub">Dokumen Kelulusan</div></div><div class="app-arrow">→</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer><b>ABUTS</b> — Analisis Butir Soal · bagian dari ekosistem EduApps · © 2025</footer>
+</div><!-- /page-abuts -->
+
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: SKL & IJAZAH
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-skl">
+  <!-- BANNER -->
+  <div class="page-banner pt-nav" style="background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(124,58,237,0.22) 0%,transparent 65%);">
+    <div class="banner-inner">
+      <button class="back-link" onclick="gotoPage('home')">← Kembali ke Beranda</button>
+      <div class="eyebrow" style="border-color:rgba(124,58,237,0.35);color:#a78bfa;background:rgba(124,58,237,0.12);">📜 Aplikasi 3 dari 3</div>
+      <h1 class="banner-title" style="background:linear-gradient(135deg,#fff 0%,#c4b5fd 55%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SKL & Ijazah</h1>
+      <p class="banner-sub">Pengolah Nilai & Surat Keterangan Lulus — kelola seluruh dokumen kelulusan kelas 6 SD dari satu aplikasi: SKL, transkrip, ijazah, piagam, ranking, hingga SK Penetapan Lulus.</p>
+    </div>
+  </div>
+  <div class="divider-glow divider-violet"></div>
+
+  <div class="wrap">
+    <section>
+      <div class="sec-label" style="color:#a78bfa;">Dokumen yang Dihasilkan</div>
+      <h2 class="sec-title">Satu Aplikasi untuk<br>Semua Dokumen Kelulusan</h2>
+      <p class="sec-body">Tidak perlu berpindah-pindah aplikasi. Semua dokumen resmi kelulusan kelas 6 dihasilkan dari satu sumber data siswa.</p>
+
+      <div class="skl-grid reveal">
+        <div class="skl-card"><div class="skl-card-icon">📋</div><div class="skl-card-title">Surat Keterangan Lulus (SKL)</div><div class="skl-card-desc">Cetak SKL per siswa dengan nomor surat, tanda tangan kepsek, dan cap sekolah. Format sesuai standar dinas.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">📄</div><div class="skl-card-title">Transkrip Nilai</div><div class="skl-card-desc">Transkrip nilai lengkap mencakup nilai rapor, ujian sekolah, dan nilai ijazah per mata pelajaran.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">🏆</div><div class="skl-card-title">Ranking Siswa</div><div class="skl-card-desc">Peringkat otomatis berdasarkan jumlah nilai ijazah dari tertinggi ke terendah. Bisa dicetak sebagai lampiran.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">🎖️</div><div class="skl-card-title">Piagam Penghargaan</div><div class="skl-card-desc">Piagam kelulusan dengan dua pilihan desain — bawaan atau gambar custom yang bisa diunggah.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">📚</div><div class="skl-card-title">Kartu Buku Siswa</div><div class="skl-card-desc">Kartu buku nilai lengkap per siswa untuk arsip sekolah dan diberikan ke wali murid.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">📊</div><div class="skl-card-title">Rekapitulasi Rapor</div><div class="skl-card-desc">Rekap nilai seluruh siswa dalam satu tabel — mudah untuk pelaporan ke kepala sekolah atau dinas.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">⚡</div><div class="skl-card-title">Laporan Kilat</div><div class="skl-card-desc">Ringkasan statistik kelas: rata-rata, tertinggi, terendah, dan distribusi nilai per mata pelajaran.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">✉️</div><div class="skl-card-title">Surat Undangan</div><div class="skl-card-desc">Template surat undangan pengambilan ijazah/SKL dengan data siswa terisi otomatis.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">📝</div><div class="skl-card-title">SK Penetapan Lulus</div><div class="skl-card-desc">Surat Keputusan kepala sekolah tentang penetapan kelulusan peserta didik beserta lampiran daftar nama.</div></div>
+        <div class="skl-card"><div class="skl-card-icon">📜</div><div class="skl-card-title">Surat Kelulusan</div><div class="skl-card-desc">Surat kelulusan resmi per siswa yang ditandatangani kepala sekolah, siap cetak dan diserahkan.</div></div>
+      </div>
+
+      <!-- Alur Kerja SKL -->
+      <div style="margin-top:64px;">
+        <div class="sec-label" style="color:#a78bfa;">Alur Kerja</div>
+        <h2 class="sec-title">Dari DNS ke Ijazah<br>dalam 4 Langkah</h2>
+      </div>
+
+      <div class="bento-grid" style="margin-top:32px;">
+        <div class="bento bento-skl b6 reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+          <div class="flow">
+            <div class="flow-step"><div class="flow-num" style="background:rgba(124,58,237,0.22);color:#a78bfa;">1</div><div><div class="flow-title">Import DNS (Data Nominasi Siswa)</div><div class="flow-sub">Import dari Excel Dapodik, atau input manual. Data nama, NISN, no. ijazah, dan identitas lengkap.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(124,58,237,0.22);color:#a78bfa;">2</div><div><div class="flow-title">Input Nilai Rapor & Ujian</div><div class="flow-sub">Input nilai rapor 5 semester, nilai ujian sekolah (tertulis + praktik) per mata pelajaran.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(124,58,237,0.22);color:#a78bfa;">3</div><div><div class="flow-title">Hitung & Verifikasi Nilai Ijazah</div><div class="flow-sub">Nilai ijazah dihitung otomatis dari kombinasi nilai rapor dan ujian sekolah sesuai formula yang berlaku.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(124,58,237,0.22);color:#a78bfa;">4</div><div><div class="flow-title">Cetak Semua Dokumen</div><div class="flow-sub">SKL, transkrip, piagam, ranking, SK, surat undangan — semua tercetak dari satu klik menu.</div></div></div>
+          </div>
+          <div>
+            <div class="tag tag-violet">📊 Dashboard SKL</div>
+            <div class="bento-title">Progress Entri Nilai Real-Time</div>
+            <div class="bento-desc">Pantau berapa siswa yang sudah dan belum diisi nilainya untuk setiap jenis penilaian.</div>
+            <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:80px;text-align:center;padding:14px;background:rgba(124,58,237,0.1);border:1px solid rgba(124,58,237,0.2);border-radius:12px;">
+                <div style="font-size:2rem;font-weight:900;color:#a78bfa;line-height:1;">32</div>
+                <div style="font-size:10px;color:var(--w40);margin-top:3px;">Total Siswa</div>
+              </div>
+              <div style="flex:1;min-width:80px;text-align:center;padding:14px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);border-radius:12px;">
+                <div style="font-size:2rem;font-weight:900;color:#34d399;line-height:1;">28</div>
+                <div style="font-size:10px;color:var(--w40);margin-top:3px;">Nilai Rapor</div>
+              </div>
+              <div style="flex:1;min-width:80px;text-align:center;padding:14px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.2);border-radius:12px;">
+                <div style="font-size:2rem;font-weight:900;color:#fcd34d;line-height:1;">24</div>
+                <div style="font-size:10px;color:var(--w40);margin-top:3px;">Nilai Ujian</div>
+              </div>
+            </div>
+            <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>Nilai Rapor</span><span style="color:#34d399;font-weight:700;">88%</span></div><div class="bar-track" style="height:5px;"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>Nilai Ujian Sekolah</span><span style="color:#fcd34d;font-weight:700;">75%</span></div><div class="bar-track" style="height:5px;"><div class="bar-fill" style="width:75%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fitur tambahan SKL -->
+      <div style="margin-top:64px;">
+        <div class="sec-label" style="color:#a78bfa;">Fitur Pendukung</div>
+        <h2 class="sec-title">Lebih dari Sekadar<br>Cetak Dokumen</h2>
+        <div class="bento-grid" style="margin-top:32px;">
+          <div class="bento bento-skl b3 reveal">
+            <div class="tag tag-violet">🗄️ Import Dapodik</div>
+            <div class="bento-title">Import Langsung dari Excel Dapodik</div>
+            <div class="bento-desc">Upload file Excel Dapodik Kelas 6, sistem otomatis membaca data siswa dari baris header dan memfilter kelas 6 saja. Pilih data ayah atau ibu sebagai nama orang tua.</div>
+          </div>
+          <div class="bento bento-skl b4 reveal">
+            <div class="tag tag-violet">🖨️ Kop Surat Global</div>
+            <div class="bento-title">Atur Sekali, Berlaku Semua</div>
+            <div class="bento-desc">Kop surat diatur sekali di menu Add-on, langsung berlaku untuk SKL, transkrip, surat undangan, SK, dan semua dokumen lainnya — tidak perlu atur ulang per dokumen.</div>
+          </div>
+          <div class="bento bento-skl b5 reveal">
+            <div class="tag tag-rose">💾 Backup & Restore</div>
+            <div class="bento-title">Data Aman dengan Backup JSON</div>
+            <div class="bento-desc">Backup seluruh data ke file JSON lokal kapan saja. Restore dari backup jika terjadi masalah. File backup menyertakan timestamp otomatis.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hbox reveal" style="background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(167,139,250,0.05));border:1px solid rgba(124,58,237,0.28);">
+        <div class="hbox-icon" style="background:rgba(124,58,237,0.2);">📜</div>
+        <div class="hbox-text"><strong>Semua Dokumen Kelulusan dari Satu Aplikasi.</strong> Tidak perlu buka Word, Excel, atau aplikasi lain. Data DNS diinput sekali, lalu SKL, transkrip, piagam, surat undangan, SK, dan semua dokumen lainnya dapat dicetak langsung — dengan format yang sudah sesuai standar dinas pendidikan.</div>
+      </div>
+
+      <div style="margin-top:64px;text-align:center;">
+        <div class="sec-label" style="color:#a78bfa;margin-bottom:16px;">Jelajahi Aplikasi Lainnya</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <div class="app-card app-card-au" onclick="gotoPage('abon')" style="max-width:220px;cursor:pointer;"><div class="app-icon">🎓</div><div><div class="app-name">Abon Urap</div><div class="app-sub">Olah Nilai Rapor</div></div><div class="app-arrow">→</div></div>
+          <div class="app-card app-card-ab" onclick="gotoPage('abuts')" style="max-width:220px;cursor:pointer;"><div class="app-icon">🔬</div><div><div class="app-name">ABUTS</div><div class="app-sub">Analisis Butir Soal</div></div><div class="app-arrow">→</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer><b>SKL & Ijazah</b> — Pengolah Nilai & Dokumen Kelulusan · bagian dari ekosistem EduApps · © 2025</footer>
+</div><!-- /page-skl -->
+
+<!-- ══════════════════════════════════════════════════
+     PAGE: SALINDIA INTERAKTIF
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-sal">
+  <!-- BANNER -->
+  <div class="page-banner pt-nav" style="background:radial-gradient(ellipse 60% 60% at 50% 0%,rgba(99,102,241,0.25) 0%,transparent 65%);">
+    <div class="banner-inner">
+      <button class="back-link" onclick="gotoPage('home')">← Kembali ke Beranda</button>
+      <div class="eyebrow" style="border-color:rgba(99,102,241,0.35);color:#a5b4fc;background:rgba(99,102,241,0.12);">🎬 Aplikasi 4 dari 4</div>
+      <h1 class="banner-title" style="background:linear-gradient(135deg,#fff 0%,#c7d2fe 55%,#a5b4fc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Salindia Interaktif</h1>
+      <p class="banner-sub">Arena Presentasi Interaktif — ubah tayangan slide biasa menjadi sesi belajar dua arah dengan kuis real-time, berbagai tipe soal, dan umpan balik langsung dari seluruh peserta.</p>
+    </div>
+  </div>
+  <div class="divider-glow" style="background:linear-gradient(90deg,transparent,rgba(99,102,241,0.5),transparent);"></div>
+
+  <div class="wrap">
+    <section>
+      <!-- Dua Peran Utama -->
+      <div class="sec-label" style="color:#a5b4fc;">Dua Peran, Satu Sesi</div>
+      <h2 class="sec-title">Presenter & Peserta<br>Terhubung Real-Time</h2>
+      <p class="sec-body">Guru masuk sebagai Presenter untuk mengelola slide dan soal. Siswa bergabung sebagai Tamu via PIN atau QR Code dari gawai masing-masing — tanpa install aplikasi.</p>
+
+      <div class="bento-grid">
+        <!-- Panel Presenter -->
+        <div class="bento bento-sal b1 reveal">
+          <div class="tag tag-indigo">🖥️ Panel Presenter</div>
+          <div class="bento-title">Kendali Penuh di Tangan Guru</div>
+          <div class="bento-desc">Kelola slide, sematkan soal per slide, mulai/akhiri sesi, pantau jawaban siswa, dan tampilkan hasil ke layar proyektor — semua dari satu dasbor.</div>
+          <div class="flow" style="margin-top:18px;">
+            <div class="flow-step"><div class="flow-num" style="background:rgba(99,102,241,0.22);color:#a5b4fc;">1</div><div><div class="flow-title">Buat atau Impor Presentasi</div><div class="flow-sub">Ketik konten langsung, impor PDF, atau biarkan AI membuatkan slide & soal otomatis.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(99,102,241,0.22);color:#a5b4fc;">2</div><div><div class="flow-title">Mulai Sesi — Bagikan PIN</div><div class="flow-sub">Satu klik mulai sesi; PIN kelas dan QR Code langsung tersedia untuk peserta.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(99,102,241,0.22);color:#a5b4fc;">3</div><div><div class="flow-title">Buka Kuis Per Slide</div><div class="flow-sub">Aktifkan soal kapan pun. Jawaban masuk secara real-time dan ditampilkan sebagai infografis.</div></div></div>
+            <div class="flow-step"><div class="flow-num" style="background:rgba(99,102,241,0.22);color:#a5b4fc;">4</div><div><div class="flow-title">Tampilkan Hasil ke Kelas</div><div class="flow-sub">Grafik hasil jawaban muncul langsung di layar proyektor untuk diskusi kelas.</div></div></div>
+          </div>
+        </div>
+        <!-- Tampilan Tamu -->
+        <div class="bento bento-sal b2 reveal">
+          <div class="tag tag-violet">📱 Tampilan Tamu</div>
+          <div class="bento-title">Siswa Ikut Aktif dari Gawai</div>
+          <div class="bento-desc">Siswa melihat slide real-time dan menjawab soal dari HP atau tablet — tanpa perlu install aplikasi apapun, cukup buka browser.</div>
+          <div class="mini-ui" style="margin-top:16px;">
+            <div class="mini-row"><div class="mini-dot" style="background:var(--indigo);"></div>Masuk via PIN Kamar<div class="mini-badge" style="background:rgba(99,102,241,0.22);">JOIN</div></div>
+            <div class="mini-row"><div class="mini-dot" style="background:#a5b4fc;"></div>Saksikan slide real-time<div class="mini-badge" style="background:rgba(99,102,241,0.22);">LIVE</div></div>
+            <div class="mini-row"><div class="mini-dot" style="background:var(--green);"></div>Jawab soal interaktif<div class="mini-badge" style="background:rgba(16,185,129,0.22);">QUIZ</div></div>
+            <div class="mini-row"><div class="mini-dot" style="background:var(--amber);"></div>Unduh slide individual<div class="mini-badge" style="background:rgba(245,158,11,0.22);">DL</div></div>
+          </div>
+          <div style="margin-top:14px;padding:11px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:9px;font-size:11px;color:var(--w60);line-height:1.65;">
+            🔗 Akses via <strong style="color:#a5b4fc;">LAN/WiFi lokal</strong> (offline) atau <strong style="color:#a5b4fc;">URL publik</strong> (online/tunnel) — fleksibel untuk kondisi jaringan sekolah manapun.
+          </div>
+        </div>
+
+        <!-- 8 Tipe Soal -->
+        <div class="bento bento-sal b6 reveal">
+          <div class="tag tag-indigo">🎯 8 Tipe Kuis</div>
+          <div class="bento-title">Ragam Soal untuk Setiap Tujuan Pembelajaran</div>
+          <div class="bento-desc">Dari pilihan ganda sederhana hingga word cloud kolaboratif — pilih tipe soal yang paling sesuai dengan materi dan gaya mengajar Anda.</div>
+          <div class="quiz-type-grid">
+            <div class="qt-chip" style="border-color:rgba(56,189,248,0.25);background:rgba(56,189,248,0.07);">
+              <div class="qt-icon">🔵</div>
+              <div class="qt-name">Pilihan Ganda</div>
+              <div class="qt-desc">Satu jawaban benar dari beberapa opsi</div>
+            </div>
+            <div class="qt-chip" style="border-color:rgba(124,58,237,0.25);background:rgba(124,58,237,0.07);">
+              <div class="qt-icon">☑️</div>
+              <div class="qt-name">Pilihan Kompleks</div>
+              <div class="qt-desc">Bisa lebih dari satu jawaban benar</div>
+            </div>
+            <div class="qt-chip" style="border-color:rgba(245,158,11,0.25);background:rgba(245,158,11,0.07);">
+              <div class="qt-icon">✏️</div>
+              <div class="qt-name">Isian Singkat</div>
+              <div class="qt-desc">Siswa mengetik jawaban pendek</div>
+            </div>
+            <div class="qt-chip" style="border-color:rgba(16,185,129,0.25);background:rgba(16,185,129,0.07);">
+              <div class="qt-icon">🔗</div>
+              <div class="qt-name">Menjodohkan</div>
+              <div class="qt-desc">Pasangkan item kiri dan kanan</div>
+            </div>
+            <div class="qt-chip" style="border-color:rgba(244,63,94,0.25);background:rgba(244,63,94,0.07);">
+              <div class="qt-icon">📝</div>
+              <div class="qt-name">Uraian</div>
+              <div class="qt-desc">Jawaban panjang terbuka dari siswa</div>
+            </div>
+            <div class="qt-chip" style="border-color:rgba(14,165,233,0.25);background:rgba(14,165,233,0.07);">
+              <div class="qt-icon">☁️</div>
+              <div class="qt-name">Word Cloud</div>
+              <div class="qt-desc">Kata-kata siswa jadi awan kolaboratif</div>
+            </div>
+            <div class="qt-chip" style="border-color:rgba(99,102,241,0.25);background:rgba(99,102,241,0.07);">
+              <div class="qt-icon">⚖️</div>
+              <div class="qt-name">Pernyataan Sikap</div>
+              <div class="qt-desc">Skala likert untuk survei/refleksi</div>
+            </div>
+            <div class="qt-chip" style="border-color:rgba(251,146,60,0.25);background:rgba(251,146,60,0.07);">
+              <div class="qt-icon">⚡</div>
+              <div class="qt-name">Respon Cepat</div>
+              <div class="qt-desc">Polling ekspres berirama cepat</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Konten Slide -->
+        <div class="bento bento-sal b7 reveal">
+          <div class="tag tag-indigo">📂 Sumber Konten</div>
+          <div class="bento-title">Tiga Cara Membuat Presentasi</div>
+          <div class="bento-desc">Tidak perlu berpindah aplikasi untuk menyiapkan materi — pilih cara yang paling sesuai waktu dan kebutuhan.</div>
+          <div style="margin-top:16px;display:flex;flex-direction:column;gap:9px;">
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:12px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.18);border-radius:10px;">
+              <span style="font-size:1.3rem;">🤖</span>
+              <div>
+                <div style="font-size:12px;font-weight:800;color:#fff;margin-bottom:2px;">Generate AI</div>
+                <div style="font-size:11px;color:var(--w40);line-height:1.5;">Ketik topik, AI buatkan hingga 5 slide lengkap beserta soal interaktif bervariasi secara otomatis.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:12px;background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.18);border-radius:10px;">
+              <span style="font-size:1.3rem;">📄</span>
+              <div>
+                <div style="font-size:12px;font-weight:800;color:#fff;margin-bottom:2px;">Impor PDF</div>
+                <div style="font-size:11px;color:var(--w40);line-height:1.5;">Upload file PDF existing — setiap halaman otomatis menjadi satu slide gambar yang siap disiarkan.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px;padding:12px;background:rgba(16,185,129,0.07);border:1px solid rgba(16,185,129,0.18);border-radius:10px;">
+              <span style="font-size:1.3rem;">✍️</span>
+              <div>
+                <div style="font-size:12px;font-weight:800;color:#fff;margin-bottom:2px;">Buat Manual</div>
+                <div style="font-size:11px;color:var(--w40);line-height:1.5;">Tulis judul & konten tiap slide langsung di editor bawaan, tambah soal per slide sesuka Anda.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode Akses Jaringan -->
+        <div class="bento bento-sal b3 reveal">
+          <div class="tag tag-indigo">📡 Mode Jaringan</div>
+          <div class="bento-title">Offline LAN & Online Tunnel</div>
+          <div class="bento-desc">Dua mode akses untuk berbagai kondisi koneksi sekolah — peserta bisa bergabung dari jaringan lokal maupun internet publik.</div>
+          <div style="margin-top:16px;display:flex;gap:8px;">
+            <div style="flex:1;padding:12px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.22);border-radius:10px;text-align:center;">
+              <div style="font-size:1.5rem;margin-bottom:5px;">📶</div>
+              <div style="font-size:11px;font-weight:800;color:#34d399;margin-bottom:3px;">LAN / WiFi</div>
+              <div style="font-size:10px;color:var(--w40);line-height:1.4;">Semua perangkat dalam satu jaringan. Terdeteksi otomatis + QR Code siap scan.</div>
+            </div>
+            <div style="flex:1;padding:12px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.22);border-radius:10px;text-align:center;">
+              <div style="font-size:1.5rem;margin-bottom:5px;">🌐</div>
+              <div style="font-size:11px;font-weight:800;color:#a5b4fc;margin-bottom:3px;">URL Publik</div>
+              <div style="font-size:10px;color:var(--w40);line-height:1.4;">Gunakan tunnel (Ngrok, Cloudflare, dll.) untuk akses dari luar jaringan sekolah.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Layar Proyektor -->
+        <div class="bento bento-sal b4 reveal">
+          <div class="tag tag-violet">🖥️ Proyektor</div>
+          <div class="bento-title">Layar Proyektor Terpisah</div>
+          <div class="bento-desc">Buka layar proyektor di jendela terpisah — tampilkan slide dan hasil kuis ke kelas, sambil kontrol tetap di laptop guru.</div>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:7px;">
+            <div class="mini-row"><div class="mini-dot" style="background:#a5b4fc;"></div><span style="font-size:11px;">Slide tampil fullscreen tanpa kontrol UI</span></div>
+            <div class="mini-row"><div class="mini-dot" style="background:#34d399;"></div><span style="font-size:11px;">Grafik hasil jawaban muncul real-time</span></div>
+            <div class="mini-row"><div class="mini-dot" style="background:var(--amber);"></div><span style="font-size:11px;">PIN & QR Code tampil saat kuis aktif</span></div>
+          </div>
+        </div>
+
+        <!-- Split Screen -->
+        <div class="bento bento-sal b5 reveal">
+          <div class="tag tag-indigo">↕ Split Screen</div>
+          <div class="bento-title">Mode Layar Terbagi</div>
+          <div class="bento-desc">Tampilkan panel Presenter dan tampilan Tamu berdampingan dalam satu layar — cocok untuk demo atau pengujian mandiri.</div>
+          <div style="margin-top:14px;display:flex;gap:6px;height:60px;">
+            <div style="flex:1;background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#a5b4fc;">🖥️ PRESENTER</div>
+            <div style="flex:1;background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.28);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#c4b5fd;">📱 TAMU</div>
+          </div>
+        </div>
+
+        <!-- Alur Lengkap -->
+        <div class="bento bento-sal b6 reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+          <div>
+            <div class="tag tag-indigo">📊 Hasil Real-Time</div>
+            <div class="bento-title">Infografis Jawaban Langsung Muncul</div>
+            <div class="bento-desc">Begitu peserta mengirim jawaban, grafik distribusi langsung diperbarui. Guru bisa langsung tahu miskonsepsi yang terjadi di kelas.</div>
+            <div style="margin-top:16px;padding:14px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.18);border-radius:11px;">
+              <div style="font-size:10px;color:var(--w40);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Peserta Menjawab</div>
+              <div style="font-size:2.6rem;font-weight:900;background:linear-gradient(135deg,var(--indigo),#a5b4fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">32</div>
+              <div style="font-size:11px;color:var(--w40);margin-top:3px;">dari 32 siswa · 1 soal aktif</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:var(--w40);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px;">Distribusi Jawaban Pilihan Ganda</div>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>A — Fotosintesis</span><span style="color:#34d399;font-weight:700;">18 siswa</span></div><div class="bar-track" style="height:7px;"><div class="bar-fill" style="width:56%;background:linear-gradient(90deg,#10b981,#34d399);"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>B — Respirasi</span><span style="color:var(--sky);font-weight:700;">8 siswa</span></div><div class="bar-track" style="height:7px;"><div class="bar-fill" style="width:25%;background:linear-gradient(90deg,#0ea5e9,#38bdf8);"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>C — Transpirasi</span><span style="color:var(--amber);font-weight:700;">4 siswa</span></div><div class="bar-track" style="height:7px;"><div class="bar-fill" style="width:12%;background:linear-gradient(90deg,#d97706,#f59e0b);"></div></div></div>
+              <div><div style="display:flex;justify-content:space-between;font-size:11px;color:var(--w40);margin-bottom:4px;"><span>D — Evaporasi</span><span style="color:#fca5a5;font-weight:700;">2 siswa</span></div><div class="bar-track" style="height:7px;"><div class="bar-fill" style="width:6%;background:linear-gradient(90deg,#ef4444,#f87171);"></div></div></div>
+            </div>
+            <div style="margin-top:10px;font-size:10px;color:var(--w40);text-align:right;">✅ Kunci: A — 56% benar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fitur Teknis -->
+      <div style="margin-top:64px;">
+        <div class="sec-label" style="color:#a5b4fc;">Fitur Teknis</div>
+        <h2 class="sec-title">Ringan, Aman,<br>Bisa Dijalankan Offline</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:32px;">
+          <div class="sal-card reveal">
+            <div class="sal-card-icon">📦</div>
+            <div class="sal-card-title">Satu File HTML</div>
+            <div class="sal-card-desc">Tidak ada instalasi, tidak ada dependensi luar — cukup buka file HTML di browser dan langsung siap digunakan.</div>
+          </div>
+          <div class="sal-card reveal">
+            <div class="sal-card-icon">🔒</div>
+            <div class="sal-card-title">Login Presenter Terproteksi</div>
+            <div class="sal-card-desc">Panel Presenter dilindungi username & password. Peserta hanya bisa melihat slide dan menjawab soal — tidak bisa mengubah konten.</div>
+          </div>
+          <div class="sal-card reveal">
+            <div class="sal-card-icon">💾</div>
+            <div class="sal-card-title">Simpan Lokal Otomatis</div>
+            <div class="sal-card-desc">Semua presentasi tersimpan di localStorage browser secara otomatis. Data tidak pernah keluar dari perangkat guru.</div>
+          </div>
+          <div class="sal-card reveal">
+            <div class="sal-card-icon">📡</div>
+            <div class="sal-card-title">Sinkronisasi Real-Time</div>
+            <div class="sal-card-desc">Slide berpindah di layar semua peserta secara bersamaan saat presenter klik navigasi — tanpa jeda berarti.</div>
+          </div>
+          <div class="sal-card reveal">
+            <div class="sal-card-icon">🤖</div>
+            <div class="sal-card-title">Generasi Konten AI</div>
+            <div class="sal-card-desc">Integrasi API Claude — ketik topik, AI buatkan presentasi 5 slide lengkap dengan soal variatif dalam hitungan detik.</div>
+          </div>
+          <div class="sal-card reveal">
+            <div class="sal-card-icon">📲</div>
+            <div class="sal-card-title">QR Code Otomatis</div>
+            <div class="sal-card-desc">QR Code alamat join di-generate otomatis untuk setiap alamat IP dan URL publik — tinggal scan dari kamera siswa.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hbox reveal" style="background:linear-gradient(135deg,rgba(99,102,241,0.12),rgba(165,180,252,0.05));border:1px solid rgba(99,102,241,0.28);">
+        <div class="hbox-icon" style="background:rgba(99,102,241,0.20);">🎬</div>
+        <div class="hbox-text"><strong>Jadikan Setiap Presentasi Pengalaman Belajar yang Aktif.</strong> Salindia Interaktif menggabungkan tayangan materi dan asesmen formatif dalam satu sesi yang mengalir — guru mendapat umpan balik kelas secara instan, siswa terlibat aktif, dan pembelajaran jadi dua arah.</div>
+      </div>
+
+      <div style="margin-top:64px;text-align:center;">
+        <div class="sec-label" style="color:#a5b4fc;margin-bottom:16px;">Jelajahi Aplikasi Lainnya</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <div class="app-card app-card-au" onclick="gotoPage('abon')" style="max-width:220px;cursor:pointer;"><div class="app-icon">🎓</div><div><div class="app-name">Abon Urap</div><div class="app-sub">Olah Nilai Rapor</div></div><div class="app-arrow">→</div></div>
+          <div class="app-card app-card-ab" onclick="gotoPage('abuts')" style="max-width:220px;cursor:pointer;"><div class="app-icon">🔬</div><div><div class="app-name">ABUTS</div><div class="app-sub">Analisis Butir Soal</div></div><div class="app-arrow">→</div></div>
+          <div class="app-card app-card-skl" onclick="gotoPage('skl')" style="max-width:220px;cursor:pointer;"><div class="app-icon">📜</div><div><div class="app-name">SKL & Ijazah</div><div class="app-sub">Dokumen Kelulusan</div></div><div class="app-arrow">→</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer><b>Salindia Interaktif</b> — Arena Presentasi Interaktif · bagian dari ekosistem EduApps · © 2025</footer>
+</div><!-- /page-sal -->
+
+
+<!-- ════════════════════════════════════════════════════
+     PAGE: SPMB SD
+════════════════════════════════════════════════════ -->
+<div class="page" id="page-spmb">
+
+  <!-- BANNER -->
+  <div class="page-banner pt-nav" style="background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(236,72,153,0.22) 0%,transparent 65%);">
+    <div class="banner-inner">
+      <button class="back-link" onclick="gotoPage('home')">← Kembali ke Beranda</button>
+      <div class="eyebrow" style="background:rgba(236,72,153,0.14);border-color:rgba(249,168,212,0.35);color:#f9a8d4;">📋 Sistem Pendaftaran Murid Baru</div>
+      <h1 class="banner-title" style="background:linear-gradient(135deg,#fff 0%,#fbcfe8 50%,#ec4899 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SPMB SD</h1>
+      <p class="banner-sub">Platform penerimaan murid baru yang berjalan sebagai desktop app berbasis Electron — formulir digital, sistem antrian TTS, notifikasi WhatsApp, hingga cetak surat pernyataan, semua dalam satu file.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section>
+
+      <!-- STAT PILLS -->
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:56px;">
+        <div class="stat-pill"><div class="stat-num" style="background:linear-gradient(135deg,#ec4899,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">3</div><div class="stat-lbl">Jalur Masuk</div></div>
+        <div class="stat-pill"><div class="stat-num" style="background:linear-gradient(135deg,#ec4899,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">2</div><div class="stat-lbl">Peran Pengguna</div></div>
+        <div class="stat-pill"><div class="stat-num" style="background:linear-gradient(135deg,#ec4899,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">LAN</div><div class="stat-lbl">Sinkronisasi Real-Time</div></div>
+        <div class="stat-pill"><div class="stat-num" style="background:linear-gradient(135deg,#ec4899,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">TTS</div><div class="stat-lbl">Suara Antrian Otomatis</div></div>
+        <div class="stat-pill"><div class="stat-num" style="background:linear-gradient(135deg,#ec4899,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">0</div><div class="stat-lbl">Data ke Server Luar</div></div>
+      </div>
+
+      <!-- BENTO ROW 1 -->
+      <div class="bento-grid">
+
+        <!-- B1: Dual-role access -->
+        <div class="bento bento-spmb b1 reveal">
+          <div class="tag tag-pink">🔐 Akses Ganda</div>
+          <div class="bento-title">Dua Peran, Satu Aplikasi</div>
+          <div class="bento-desc">Pendaftar langsung isi formulir tanpa login; Admin masuk dengan kredensial untuk mengelola data, mengubah status, dan mencetak dokumen.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;">
+            <div style="background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.2);border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-size:1.8rem;margin-bottom:6px;">🧑‍💼</div>
+              <div style="font-size:12px;font-weight:800;color:#fff;margin-bottom:3px;">Pendaftar</div>
+              <div style="font-size:11px;color:var(--w40);line-height:1.4;">Isi formulir, lihat jurnal pengumuman — langsung tanpa login</div>
+            </div>
+            <div style="background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.2);border-radius:12px;padding:16px;text-align:center;">
+              <div style="font-size:1.8rem;margin-bottom:6px;">🛡️</div>
+              <div style="font-size:12px;font-weight:800;color:#fff;margin-bottom:3px;">Admin</div>
+              <div style="font-size:11px;color:var(--w40);line-height:1.4;">Dashboard, kelola data, cetak dokumen, kirim notifikasi</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B2: Jalur masuk -->
+        <div class="bento bento-spmb b2 reveal">
+          <div class="tag tag-pink">📌 Jalur Penerimaan</div>
+          <div class="bento-title">3 Jalur Masuk Resmi</div>
+          <div class="bento-desc">Sesuai regulasi PPDB nasional — setiap pendaftar memilih jalur yang sesuai.</div>
+          <div class="flow" style="margin-top:18px;">
+            <div class="flow-step">
+              <div class="flow-num" style="background:rgba(236,72,153,0.2);color:#f9a8d4;">🏠</div>
+              <div><div class="flow-title">Domisili</div><div class="flow-sub">Berdasarkan wilayah zonasi kelurahan</div></div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num" style="background:rgba(236,72,153,0.2);color:#f9a8d4;">🔄</div>
+              <div><div class="flow-title">Mutasi</div><div class="flow-sub">Perpindahan dari sekolah lain</div></div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num" style="background:rgba(236,72,153,0.2);color:#f9a8d4;">⭐</div>
+              <div><div class="flow-title">Afirmasi</div><div class="flow-sub">Siswa dari keluarga tidak mampu / disabilitas</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B3: Status -->
+        <div class="bento bento-spmb b3 reveal">
+          <div class="tag tag-pink">📊 Status Pendaftaran</div>
+          <div class="bento-title">Pantau Status Real-Time</div>
+          <div class="bento-desc">Admin mengubah status setiap calon siswa langsung dari tabel data.</div>
+          <div class="mini-ui" style="margin-top:16px;">
+            <div class="mini-row">
+              <div class="mini-dot" style="background:#6366f1;"></div>
+              <span>Ahmad Rafli — Kelas 1A</span>
+              <div class="mini-badge" style="background:rgba(99,102,241,0.22);color:#a5b4fc;">Daftar</div>
+            </div>
+            <div class="mini-row">
+              <div class="mini-dot" style="background:#10b981;"></div>
+              <span>Siti Aminah — Kelas 1B</span>
+              <div class="mini-badge" style="background:rgba(16,185,129,0.22);color:#6ee7b7;">Daftar Ulang</div>
+            </div>
+            <div class="mini-row">
+              <div class="mini-dot" style="background:#f43f5e;"></div>
+              <span>Kevin Wijaya — —</span>
+              <div class="mini-badge" style="background:rgba(244,63,94,0.22);color:#fda4af;">Batal Daftar</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- B4: Antrian TTS -->
+        <div class="bento bento-spmb b4 reveal">
+          <div class="tag tag-pink">🔔 Antrian TTS</div>
+          <div class="bento-title">Panggil Nomor Antrian Bersuara</div>
+          <div class="bento-desc">Text-to-Speech Indonesia via neural voice Windows 11 — Nomor antrian diumumkan otomatis ke speaker.</div>
+          <div style="margin-top:18px;background:rgba(236,72,153,0.07);border:1px solid rgba(236,72,153,0.18);border-radius:11px;padding:14px;text-align:center;">
+            <div style="font-size:10px;color:var(--w40);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Nomor Dipanggil</div>
+            <div style="font-size:3rem;font-weight:900;background:linear-gradient(135deg,#ec4899,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">007</div>
+            <div style="font-size:11px;color:var(--w40);margin-top:4px;">🔊 "Nomor tujuh, silakan menuju loket"</div>
+          </div>
+        </div>
+
+        <!-- B5: Dashboard -->
+        <div class="bento bento-spmb b5 reveal">
+          <div class="tag tag-pink">📈 Dashboard</div>
+          <div class="bento-title">Overview Seketika</div>
+          <div class="bento-desc">Statistik pendaftar per jalur & status tersedia langsung di halaman utama admin.</div>
+          <div style="margin-top:16px;">
+            <div class="bar-row"><div class="bar-lbl">Domisili</div><div class="bar-track"><div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#ec4899,#f9a8d4);"></div></div><span style="font-size:11px;color:var(--w40);min-width:28px;text-align:right;">65%</span></div>
+            <div class="bar-row"><div class="bar-lbl">Mutasi</div><div class="bar-track"><div class="bar-fill" style="width:22%;background:linear-gradient(90deg,#6366f1,#a5b4fc);"></div></div><span style="font-size:11px;color:var(--w40);min-width:28px;text-align:right;">22%</span></div>
+            <div class="bar-row"><div class="bar-lbl">Afirmasi</div><div class="bar-track"><div class="bar-fill" style="width:13%;background:linear-gradient(90deg,#10b981,#6ee7b7);"></div></div><span style="font-size:11px;color:var(--w40);min-width:28px;text-align:right;">13%</span></div>
+          </div>
+        </div>
+
+        <!-- B6: Alur pendaftaran -->
+        <div class="bento bento-spmb b6 reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start;">
+          <div>
+            <div class="tag tag-pink">🔄 Alur Pendaftaran</div>
+            <div class="bento-title">Dari Formulir ke Daftar Siswa — Empat Langkah</div>
+            <div class="bento-desc">Calon siswa mengisi formulir di perangkat Pendaftar, admin memverifikasi dan mengubah status di panel Admin yang sinkron via jaringan LAN.</div>
+          </div>
+          <div class="flow">
+            <div class="flow-step">
+              <div class="flow-num" style="background:rgba(236,72,153,0.2);color:#f9a8d4;font-size:12px;">1</div>
+              <div><div class="flow-title">Ambil Nomor Antrian</div><div class="flow-sub">Operator cetak nomor, sistem TTS siap memanggil</div></div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num" style="background:rgba(236,72,153,0.2);color:#f9a8d4;font-size:12px;">2</div>
+              <div><div class="flow-title">Isi Formulir Digital</div><div class="flow-sub">Pendaftar isi data diri calon siswa di tab Pendaftaran</div></div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num" style="background:rgba(236,72,153,0.2);color:#f9a8d4;font-size:12px;">3</div>
+              <div><div class="flow-title">Verifikasi Admin</div><div class="flow-sub">Admin tinjau, ubah status, cetak surat pernyataan</div></div>
+            </div>
+            <div class="flow-step">
+              <div class="flow-num" style="background:rgba(236,72,153,0.2);color:#f9a8d4;font-size:12px;">4</div>
+              <div><div class="flow-title">Kirim Notifikasi</div><div class="flow-sub">Pengumuman dikirim via WhatsApp ke orang tua/wali</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /bento-grid -->
+
+      <!-- FITUR CETAK & DOKUMEN -->
+      <div style="margin-top:64px;">
+        <div class="sec-label" style="color:#f9a8d4;">Dokumen & Cetak</div>
+        <h2 class="sec-title">Semua Dokumen PPDB<br>Dalam Satu Aplikasi</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:32px;">
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">📝</div>
+            <div class="spmb-card-title">Formulir Pendaftaran</div>
+            <div class="spmb-card-desc">Form multi-field dengan navigasi Smart Enter — isian lengkap termasuk data orang tua/wali dan jalur masuk.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">📄</div>
+            <div class="spmb-card-title">Surat Pernyataan</div>
+            <div class="spmb-card-desc">Template surat pernyataan orang tua, bisa dikustomisasi per sekolah, langsung cetak dari dalam aplikasi.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">📢</div>
+            <div class="spmb-card-title">Jurnal Pengumuman</div>
+            <div class="spmb-card-desc">Blangko pengumuman PPDB siap cetak — kuota, zonasi, tanggal daftar ulang — terisi otomatis dari data sekolah.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">💬</div>
+            <div class="spmb-card-title">Notifikasi WhatsApp</div>
+            <div class="spmb-card-desc">Kirim pengumuman massal ke orang tua melalui WhatsApp Web — template pesan bisa diatur admin.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">📤</div>
+            <div class="spmb-card-title">Import/Export Excel</div>
+            <div class="spmb-card-desc">Download template .xlsx, isi massal, upload kembali — data ratusan pendaftar masuk dalam hitungan detik.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">💾</div>
+            <div class="spmb-card-title">Backup & Restore</div>
+            <div class="spmb-card-desc">Export seluruh data ke file JSON, simpan sebagai cadangan, restore kapanpun tanpa risiko kehilangan data.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FITUR TEKNIS -->
+      <div style="margin-top:64px;">
+        <div class="sec-label" style="color:#f9a8d4;">Arsitektur & Teknis</div>
+        <h2 class="sec-title">Desktop App Ringan<br>dengan Server Embedded</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:32px;">
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">🖥️</div>
+            <div class="spmb-card-title">Electron Desktop App</div>
+            <div class="spmb-card-desc">Dikemas sebagai file .exe — tidak perlu instalasi Node.js atau browser terpisah. Buka dan langsung pakai.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">🌐</div>
+            <div class="spmb-card-title">Server Lokal Embedded</div>
+            <div class="spmb-card-desc">Server HTTP berjalan di dalam aplikasi — perangkat lain di LAN bisa mengakses lewat browser tanpa konfigurasi.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">🔄</div>
+            <div class="spmb-card-title">Sinkronisasi 5 Detik</div>
+            <div class="spmb-card-desc">Polling otomatis setiap 5 detik — data pendaftar, antrian, dan carousel selalu sinkron di semua perangkat.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">⚛️</div>
+            <div class="spmb-card-title">React + Babel In-Browser</div>
+            <div class="spmb-card-desc">UI dibangun dengan React (JSX dikompilasi Babel di browser) dan Tailwind CSS — tanpa build toolchain.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">🔑</div>
+            <div class="spmb-card-title">Aktivasi Lisensi</div>
+            <div class="spmb-card-desc">Sistem lisensi berbasis NPSN — satu kode per sekolah, sinkron otomatis ke semua perangkat dalam LAN.</div>
+          </div>
+          <div class="spmb-card reveal">
+            <div class="spmb-card-icon">🎠</div>
+            <div class="spmb-card-title">Carousel Banner Kustom</div>
+            <div class="spmb-card-desc">Admin upload gambar & teks berjalan untuk halaman pendaftar — tampil di semua client secara real-time.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HIGHLIGHT BOX -->
+      <div class="hbox reveal" style="background:linear-gradient(135deg,rgba(236,72,153,0.10),rgba(249,168,212,0.05));border:1px solid rgba(236,72,153,0.28);">
+        <div class="hbox-icon" style="background:rgba(236,72,153,0.18);">📋</div>
+        <div class="hbox-text"><strong>Penerimaan Murid Baru yang Rapi, Cepat, dan Terdokumentasi.</strong> SPMB SD menggantikan antrian kertas dan formulir manual — dari panggilan nomor bersuara, formulir digital, hingga notifikasi WhatsApp ke orang tua, semua berjalan dari satu aplikasi offline yang bisa diakses seluruh panitia PPDB lewat jaringan sekolah.</div>
+      </div>
+
+      <!-- CROSS LINKS -->
+      <div style="margin-top:64px;text-align:center;">
+        <div class="sec-label" style="color:#f9a8d4;margin-bottom:16px;">Jelajahi Aplikasi Lainnya</div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <div class="app-card app-card-au" onclick="gotoPage('abon')" style="max-width:200px;cursor:pointer;"><div class="app-icon">🎓</div><div><div class="app-name">Abon Urap</div><div class="app-sub">Olah Nilai Rapor</div></div><div class="app-arrow">→</div></div>
+          <div class="app-card app-card-ab" onclick="gotoPage('abuts')" style="max-width:200px;cursor:pointer;"><div class="app-icon">🔬</div><div><div class="app-name">ABUTS</div><div class="app-sub">Analisis Butir Soal</div></div><div class="app-arrow">→</div></div>
+          <div class="app-card app-card-skl" onclick="gotoPage('skl')" style="max-width:200px;cursor:pointer;"><div class="app-icon">📜</div><div><div class="app-name">SKL & Ijazah</div><div class="app-sub">Dokumen Kelulusan</div></div><div class="app-arrow">→</div></div>
+          <div class="app-card app-card-sal" onclick="gotoPage('sal')" style="max-width:200px;cursor:pointer;"><div class="app-icon">🎬</div><div><div class="app-name">Salindia Interaktif</div><div class="app-sub">Presentasi & Kuis</div></div><div class="app-arrow">→</div></div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+  <footer><b>SPMB SD</b> — Sistem Pendaftaran Murid Baru Terpadu · bagian dari ekosistem EduApps · © 2025</footer>
+</div><!-- /page-spmb -->
+
+
+<script>
+// ── PAGE NAVIGATION ───────────────────────────────
+const pages = ['home','abon','abuts','skl','sal','spmb'];
+const pillIds = { home:'pill-home', abon:'pill-abon', abuts:'pill-abuts', skl:'pill-skl', sal:'pill-sal', spmb:'pill-spmb' };
+const pillClasses = { home:'npill-home', abon:'npill-home', abuts:'npill-abuts', skl:'npill-skl', sal:'npill-sal', spmb:'npill-spmb' };
+
+function gotoPage(target) {
+  // hide all
+  pages.forEach(p => {
+    document.getElementById('page-'+p).classList.remove('active');
+  });
+  // deactivate all pills
+  Object.values(pillIds).forEach(id => {
+    const el = document.getElementById(id);
+    el.classList.remove('active','npill-home','npill-abuts','npill-skl','npill-sal','npill-spmb');
+    el.classList.add('npill-home'); // reset
+  });
+  // show target
+  document.getElementById('page-'+target).classList.add('active');
+  // activate pill
+  const pill = document.getElementById(pillIds[target]);
+  pill.classList.remove('npill-home');
+  pill.classList.add('active', pillClasses[target]);
+  // scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // trigger reveals for new page
+  setTimeout(() => initReveals(), 100);
+}
+
+// ── SCROLL REVEAL ─────────────────────────────────
+function initReveals() {
+  const els = document.querySelectorAll('.page.active .reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => {
+    if (!el.classList.contains('visible')) io.observe(el);
+  });
+}
+
+// ── BAR ANIMATIONS ────────────────────────────────
+function initBars() {
+  const bars = document.querySelectorAll('.page.active .bar-fill:not([data-animated])');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.setAttribute('data-animated','1');
+        const w = e.target.style.width;
+        e.target.style.width = '0';
+        requestAnimationFrame(() => requestAnimationFrame(() => { e.target.style.width = w; }));
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  bars.forEach(b => io.observe(b));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initReveals();
+  initBars();
+  // re-run on page transitions
+  const origGoto = gotoPage;
+});
+</script>
+</body>
+</html>
